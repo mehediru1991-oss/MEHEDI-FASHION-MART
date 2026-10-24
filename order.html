@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>গ্রাহকের ক্রয় অর্ডার ফরম — MEHEDI Fashion MART</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f2;color:#202420;font-family:"Noto Sans Bengali","Segoe UI",Arial,sans-serif}
+.header{background:#075b35;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Georgia,serif;font-size:25px;font-weight:700;color:#fff}.logo span{color:#d6b35b}
+.nav{background:#8fbd55;padding:9px 5%;display:flex;gap:10px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:#12351f;font-weight:700;background:#fff;padding:7px 12px;border-radius:4px}
+.wrap{max-width:850px;margin:25px auto;padding:0 15px}
+.card{background:#fff;border:1px solid #d9ddd8;border-radius:9px;padding:22px;box-shadow:0 3px 12px #00000012}
+h1{margin-top:0;color:#075b35}h2{font-size:19px;color:#075b35;border-bottom:1px solid #ddd;padding-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.full{grid-column:1/-1}
+label{font-weight:700;font-size:14px}input,select,textarea{width:100%;padding:10px;margin-top:5px;border:1px solid #cdd4cc;border-radius:5px;font:inherit}textarea{min-height:90px;resize:vertical}
+.btn{background:#075b35;color:#fff;border:0;padding:11px 18px;border-radius:5px;font-weight:800;cursor:pointer;margin-top:15px}
+.btn.alt{background:#d6b35b;color:#16301e}.notice{padding:11px;background:#edf5e8;border-left:4px solid #075b35;margin:12px 0}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
+</style></head><body>
+<header class="header"><div class="logo">MEHEDI <span>Fashion</span> MART</div><div>🛍 Online Fashion Store</div></header>
+<nav class="nav"><a href="index.html">🏠 হোম</a><a href="product-add.html">➕ পণ্য এড</a><a href="order.html">🛒 অর্ডার</a><a href="payment.html">💳 পেমেন্ট</a><a href="account.html">👤 একাউন্ট</a><a href="courier.html">🚚 কুরিয়ার</a></nav>
+<div class="wrap"><div class="card"><h1>গ্রাহকের ক্রয় অর্ডার ফরম</h1>
+
+<div class="notice">গ্রাহক পণ্য নির্বাচন করে ডেলিভারি ঠিকানা ও যোগাযোগের তথ্য দিয়ে অর্ডার করবেন।</div>
+<form onsubmit="event.preventDefault();done('অর্ডার গ্রহণের ডেমো সম্পন্ন হয়েছে।')">
+<h2>১. পণ্যের তথ্য</h2><div class="grid">
+<div><label>পণ্য</label><input required placeholder="পণ্যের নাম / কোড"></div>
+<div><label>পরিমাণ</label><input type="number" min="1" value="1"></div>
+<div><label>সাইজ</label><select><option>Free</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></div>
+<div><label>রং</label><input placeholder="কালো / নীল / লাল"></div>
+</div>
+<h2>২. গ্রাহকের তথ্য</h2><div class="grid">
+<div><label>নাম</label><input required></div><div><label>মোবাইল</label><input required placeholder="01XXXXXXXXX"></div>
+<div class="full"><label>ডেলিভারি ঠিকানা</label><textarea required placeholder="গ্রাম, ডাকঘর, উপজেলা, জেলা"></textarea></div>
+</div>
+<h2>৩. ডেলিভারি</h2><div class="grid">
+<div><label>কুরিয়ার</label><select><option>Steadfast</option><option>Pathao Courier</option><option>RedX</option><option>eCourier</option><option>নিজস্ব ডেলিভারি</option></select></div>
+<div><label>পেমেন্ট পদ্ধতি</label><select><option>Cash on Delivery</option><option>বিকাশ</option><option>নগদ</option><option>ব্যাংক</option></select></div>
+</div><button class="btn">অর্ডার কনফার্ম করুন</button>
+</form></div></div>
+<script>
+function done(msg){localStorage.setItem("mehedi_last_action",msg);alert(msg);}
+</script></body></html>

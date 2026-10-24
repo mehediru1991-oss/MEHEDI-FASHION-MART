@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#075b35">
+<title>MEHEDI Fashion MART</title>
+<style>
+:root{
+  --green:#075b35;--green2:#0b7a45;--lime:#9acb5b;--gold:#d6b35b;
+  --bg:#f5f6f2;--card:#fff;--text:#202420;--muted:#70756f;
+  --border:#d9ddd8;--danger:#c62828;--shadow:0 3px 12px rgba(0,0,0,.10)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans Bengali","Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.top{background:var(--green);color:#fff;padding:12px 4%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;min-width:230px}
+.logo-mark{font-family:Georgia,serif;font-size:46px;line-height:1;color:#d7b95f;font-weight:700;font-style:italic}
+.logo-title{font-family:Georgia,serif;font-size:28px;line-height:.85;font-weight:700}
+.logo-title small{display:block;font-family:Arial,sans-serif;font-size:15px;letter-spacing:2px;margin-top:8px;color:#fff}
+.account{display:flex;align-items:center;gap:8px;font-size:14px}
+.account .person{font-size:28px}
+.login-box{background:#d6b35b;color:#172619;padding:10px 14px;border-radius:5px;display:flex;gap:8px;align-items:center}
+.login-box input{width:180px;border:0;padding:8px;border-radius:4px;outline:0}
+.nav{background:linear-gradient(#9bc65e,#7db044);display:flex;align-items:center;gap:26px;padding:9px 3.5%;color:#102516;font-weight:700;position:sticky;top:0;z-index:20}
+.nav .category-btn{border:0;background:none;font-weight:700}
+.nav-search{margin-left:auto;position:relative;width:min(360px,36vw)}
+.nav-search input{width:100%;padding:9px 38px 9px 14px;border:0;border-radius:5px;outline:0}
+.nav-search span{position:absolute;right:12px;top:7px}
+.cart-mini{font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:235px 1fr;gap:14px;padding:14px 2.5%}
+.sidebar{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;height:max-content}
+.side-title{padding:11px 12px;font-weight:800;border-bottom:1px solid var(--border)}
+.cat-row{padding:11px 10px;border-bottom:1px solid #e5e8e4;display:flex;align-items:center;gap:8px;font-weight:650}
+.cat-row input{accent-color:var(--green)}
+.cat-row .arrow{margin-left:auto;color:#333}
+.main{min-width:0}
+.hero{display:grid;grid-template-columns:1fr 235px;gap:10px}
+.hero-main{min-height:205px;border-radius:7px;background:linear-gradient(100deg,#075b35,#0a6f3f);color:#fff;display:flex;align-items:center;justify-content:space-between;overflow:hidden;padding:22px 26px;position:relative}
+.hero-copy{z-index:2;max-width:55%}
+.hero-copy h1{margin:0 0 8px;font-size:32px}
+.hero-copy p{margin:4px 0;font-size:15px}
+.hero-copy button,.cta{border:0;background:#d5b15b;color:#16301e;padding:10px 17px;border-radius:5px;font-weight:800;margin-top:10px}
+.hero-models{display:flex;align-items:end;gap:10px;position:absolute;right:12px;bottom:0}
+.model{width:75px;height:155px;border-radius:45px 45px 8px 8px;background:linear-gradient(#e9d8bb 0 25%,#23382e 26% 100%);border:2px solid rgba(255,255,255,.3)}
+.model:nth-child(2){height:165px;background:linear-gradient(#e8d0b8 0 24%,#8b6c4d 25% 60%,#d4c0a1 61% 100%)}
+.model:nth-child(3){height:140px;background:linear-gradient(#e5c9b0 0 23%,#eee 24% 65%,#a56b50 66% 100%)}
+.promo{background:linear-gradient(160deg,#095c37,#d9e9d2);border-radius:7px;color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:center}
+.promo h3{margin:0 0 8px;font-size:19px}.promo p{margin:3px 0}.promo button{margin-top:10px;background:#d5b15b;border:0;padding:9px;border-radius:4px;font-weight:800}
+.section-title{text-align:center;font-size:24px;margin:20px 0 12px}
+.type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.type-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;box-shadow:var(--shadow);transition:.2s}
+.type-card:hover{transform:translateY(-2px)}
+.type-img{height:105px;border-radius:6px;background:linear-gradient(135deg,#eee,#d8e3d3);display:flex;align-items:center;justify-content:center;font-size:65px}
+.type-card h3{margin:8px 0 0;font-size:17px}
+.products-head{display:flex;align-items:center;justify-content:space-between;margin-top:20px}
+.products-head h2{margin:0;font-size:24px}.sort{padding:7px 10px;border:1px solid var(--border);background:#fff;border-radius:5px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.product{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.product-img{height:155px;background:linear-gradient(135deg,#f0f0ec,#dce6db);display:flex;align-items:center;justify-content:center;font-size:80px}
+.product-body{padding:9px}.product h3{font-size:15px;margin:0 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta{font-size:12px;color:var(--muted);margin-bottom:5px}.price{font-size:17px;font-weight:800;color:#111}
+.product-actions{display:flex;gap:5px;margin-top:7px}.product-actions button{flex:1;border:0;background:var(--green);color:#fff;border-radius:4px;padding:7px 4px;font-size:12px}.product-actions button:first-child{background:#e8c76d;color:#16301e}
+.empty{padding:30px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--border);border-radius:7px;grid-column:1/-1}
+footer{margin-top:24px;background:#075b35;color:#fff;padding:20px 4%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap}.footer-copy{width:100%;text-align:center;border-top:1px solid rgba(255,255,255,.25);padding-top:12px;font-size:13px}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;align-items:center;justify-content:center;padding:18px}
+.modal-bg.show{display:flex}
+.modal{width:min(560px,100%);background:#fff;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.3);padding:20px;max-height:90vh;overflow:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:14px}
+.modal-head h2{margin:0}.close{border:0;background:#eee;width:34px;height:34px;border-radius:50%;font-size:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-group{display:flex;flex-direction:column;gap:5px}.form-group.full{grid-column:1/-1}
+.form-group input,.form-group select{border:1px solid #cfd5cf;padding:9px;border-radius:5px;outline:0}.form-group input:focus,.form-group select:focus{border-color:var(--green)}
+.primary{width:100%;border:0;background:var(--green);color:#fff;padding:10px;border-radius:5px;font-weight:800;margin-top:12px}
+.cart-item{display:grid;grid-template-columns:1fr 80px 80px;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);align-items:center}
+.cart-total{text-align:right;font-size:20px;font-weight:800;margin-top:14px}
+.qty{display:flex;align-items:center;gap:5px}.qty button{border:1px solid var(--border);background:#f4f5f2;width:25px;height:25px;border-radius:4px}
+.toast{position:fixed;right:18px;bottom:18px;background:#173b28;color:#fff;padding:12px 16px;border-radius:6px;opacity:0;transform:translateY(15px);transition:.25s;z-index:200}.toast.show{opacity:1;transform:none}
+.mobile-menu{display:none}
+@media(max-width:900px){
+ .layout{grid-template-columns:1fr}.sidebar{display:none}.hero{grid-template-columns:1fr}.promo{display:none}.products{grid-template-columns:repeat(3,1fr)}
+ .top{padding:10px 2%}.logo{min-width:auto}.account{display:none}.nav{gap:10px;padding:8px 2%;flex-wrap:wrap}.nav-search{order:5;width:100%;margin:0}.mobile-menu{display:block}
+}
+@media(max-width:620px){
+ .logo-mark{font-size:36px}.logo-title{font-size:22px}.logo-title small{font-size:11px}
+ .nav>a:not(.mobile-menu),.nav .category-btn{display:none}.hero-main{min-height:180px;padding:16px}.hero-copy{max-width:100%}.hero-copy h1{font-size:25px}.hero-models{opacity:.35}
+ .type-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.product-img{height:130px}.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}
+}
+
+.quick-panel{display:flex;gap:8px;flex-wrap:wrap;padding:10px 2.5%;background:#fff;border-bottom:1px solid #ddd}
+.quick-panel a{background:#075b35;color:#fff;padding:8px 12px;border-radius:5px;font-weight:700;font-size:13px}
+.quick-panel a:hover{background:#0b7a45}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo">
+    <div class="logo-mark">MF</div>
+    <div class="logo-title">MEHEDI <i>Fashion</i><small>MART</small></div>
+  </div>
+  <div class="account">
+    <span class="person">●</span>
+    <span id="userText">গ্রাহক লগইন / একাউন্ট খুলুন</span>
+    <button class="login-box" onclick="openModal('loginModal')">👤 <b>গ্রাহক লগইন / একাউন্ট খুলুন</b></button>
+  </div>
+</header>
+
+<nav class="nav">
+  <button class="category-btn" onclick="toggleSidebar()">☷ পোশাকের ধরন⌄</button>
+  <a href="#products" onclick="filterCategory('পুরুষ পোশাক')">পুরুষ</a>
+  <a href="#products" onclick="filterCategory('নারী পোশাক')">নারী</a>
+  <a href="#products" onclick="filterCategory('শিশু পোশাক')">শিশু</a>
+  <a href="#products" onclick="filterCategory('ট্রেডিশনাল')">ট্রেডিশনাল</a>
+  <div class="nav-search"><input id="searchInput" oninput="renderProducts()" placeholder="পোশাকের ধরন বা ব্র্যান্ড খুঁজুন..."><span>⌕</span></div>
+  <button class="cart-mini" onclick="openCart()">🛍 শপিং ব্যাগ (<span id="cartCount">0</span>)</button>
+</nav>
+
+
+<div class="quick-panel">
+  <a href="product-add.html">➕ পণ্য এড</a>
+  <a href="order.html">🛒 অর্ডার ফরম</a>
+  <a href="payment.html">💳 পেমেন্ট</a>
+  <a href="account.html">👤 একাউন্ট খুলুন</a>
+  <a href="courier.html">🚚 কুরিয়ার সার্ভিস</a>
+</div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="side-title">পোশাকের ধরন</div>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'নারী পোশাক')"> নারী পোশাক <span class="arrow">⌃</span></label>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'পুরুষ পোশাক')"> পুরুষ পোশাক <span class="arrow">⌃</span></label>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'শাড়ি ও সালোয়ার কামিজ')"> শাড়ি ও সালোয়ার কামিজ <span class="arrow">⌃</span></label>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'পাঞ্জাবি ও কুর্তা')"> পাঞ্জাবি ও কুর্তা <span class="arrow">⌃</span></label>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'জুতা ও অ্যাকসেসরিজ')"> জুতা ও অ্যাকসেসরিজ <span class="arrow">⌃</span></label>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'পার্টি পোশাক')"> পার্টি পোশাক <span class="arrow">⌃</span></label>
+    <label class="cat-row"><input type="checkbox" checked onchange="setCat(this,'শিশুদের জামান')"> শিশুদের জামান <span class="arrow">⌃</span></label>
+    <div class="cat-row winter-parent" style="cursor:pointer" onclick="toggleWinter()">
+      <span>🧥</span><b>শীতের পোশাক</b><span class="arrow" id="winterArrow">⌄</span>
+    </div>
+    <div id="winterMenu" style="display:none;background:#f7f9f5;border-bottom:1px solid #e5e8e4">
+      <div class="cat-row" style="padding-left:30px;cursor:pointer" onclick="filterCategory('শীতের পোশাক - পুরুষদের')">
+        ১. পুরুষদের <span class="arrow">›</span>
+      </div>
+      <div class="cat-row" style="padding-left:30px;cursor:pointer" onclick="filterCategory('শীতের পোশাক - নারীদের')">
+        ২. নারীদের <span class="arrow">›</span>
+      </div>
+      <div class="cat-row" style="padding-left:30px;cursor:pointer" onclick="filterCategory('শীতের পোশাক - বাচ্চাদের')">
+        ৩. বাচ্চাদের <span class="arrow">›</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <h1>ফ্যাশনের নতুন দুনিয়া</h1>
+          <p>আপনার একাউন্ট খুলে বিশেষ ছাড় পান!</p>
+          <button onclick="openModal('registerModal')">একাউন্ট খুলুন</button>
+        </div>
+        <div class="hero-models"><div class="model"></div><div class="model"></div><div class="model"></div></div>
+      </div>
+      <div class="promo"><h3>একটু সময় দিন! একাউন্ট খুলুন এবং বিশেষ সুবিধা ও ছাড় পান!</h3><button onclick="openModal('loginModal')">লগইন</button><button onclick="openModal('registerModal')">একাউন্ট খুলুন</button><p style="font-size:12px">নতুন গ্রাহক? প্রথম রেজিস্ট্রেশনে বোনাস!</p></div>
+    </section>
+
+    <h2 class="section-title">পোশাকের ধরন</h2>
+    <section class="type-grid">
+      <div class="type-card" onclick="filterCategory('শাড়ি ও সালোয়ার কামিজ')"><div class="type-img">👗</div><h3>শাড়ি</h3></div>
+      <div class="type-card" onclick="filterCategory('পাঞ্জাবি ও কুর্তা')"><div class="type-img">🥻</div><h3>পাঞ্জাবি</h3></div>
+      <div class="type-card" onclick="filterCategory('শাড়ি ও সালোয়ার কামিজ')"><div class="type-img">👚</div><h3>ওয়েস্টার্ন</h3></div>
+      <div class="type-card" onclick="filterCategory('জুতা ও অ্যাকসেসরিজ')"><div class="type-img">👞</div><h3>জুতা</h3></div>
+    </section>
+
+    <div class="products-head">
+      <h2>জনপ্রিয় পোশাক</h2>
+      <select class="sort" id="sortSelect" onchange="renderProducts()">
+        <option value="default">সাজানো: জনপ্রিয়</option>
+        <option value="low">দাম: কম থেকে বেশি</option>
+        <option value="high">দাম: বেশি থেকে কম</option>
+        <option value="new">নতুন পণ্য আগে</option>
+      </select>
+    </div>
+    <section class="products" id="products"></section>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-links"><a href="#">Support</a><a href="#">About</a><a href="#">Privacy Policy</a><a href="#" onclick="openModal('loginModal');return false">Sign in</a><a href="#" onclick="openModal('registerModal');return false">Sign up</a><a href="#" onclick="trackOrder();return false">Track Your Order</a></div>
+  <div>📍 আপনার ঠিকানা এখানে</div>
+  <div class="footer-copy">© 2026 MEHEDI Fashion MART — All Rights Reserved</div>
+</footer>
+
+<div class="modal-bg" id="loginModal"><div class="modal"><div class="modal-head"><h2>গ্রাহক লগইন</h2><button class="close" onclick="closeModal('loginModal')">×</button></div><div class="form-group"><label>মোবাইল / ই-মেইল</label><input id="loginId" placeholder="01XXXXXXXXX"></div><div class="form-group" style="margin-top:10px"><label>পাসওয়ার্ড</label><input type="password" id="loginPass" placeholder="পাসওয়ার্ড"></div><button class="primary" onclick="login()">লগইন করুন</button><p style="text-align:center">একাউন্ট নেই? <a href="#" onclick="closeModal('loginModal');openModal('registerModal');return false" style="color:var(--green);font-weight:700">একাউন্ট খুলুন</a></p></div></div>
+
+<div class="modal-bg" id="registerModal"><div class="modal"><div class="modal-head"><h2>নতুন একাউন্ট</h2><button class="close" onclick="closeModal('registerModal')">×</button></div><div class="form-grid"><div class="form-group"><label>নাম</label><input id="regName" placeholder="আপনার নাম"></div><div class="form-group"><label>মোবাইল</label><input id="regPhone" placeholder="01XXXXXXXXX"></div><div class="form-group"><label>ই-মেইল</label><input id="regEmail" placeholder="example@email.com"></div><div class="form-group"><label>পাসওয়ার্ড</label><input id="regPass" type="password" placeholder="কমপক্ষে ৬ অক্ষর"></div><div class="form-group full"><label>ঠিকানা</label><input id="regAddress" placeholder="গ্রাম, ডাকঘর, উপজেলা, জেলা"></div></div><button class="primary" onclick="register()">রেজিস্ট্রেশন সম্পন্ন করুন</button></div></div>
+
+<div class="modal-bg" id="productModal"><div class="modal"><div class="modal-head"><h2 id="pmTitle">পণ্য</h2><button class="close" onclick="closeModal('productModal')">×</button></div><div id="pmBody"></div></div></div>
+
+<div class="modal-bg" id="cartModal"><div class="modal"><div class="modal-head"><h2>🛍 শপিং ব্যাগ</h2><button class="close" onclick="closeModal('cartModal')">×</button></div><div id="cartBody"></div></div></div>
+
+<div class="modal-bg" id="addProductModal"><div class="modal"><div class="modal-head"><h2>নতুন পণ্য যোগ করুন</h2><button class="close" onclick="closeModal('addProductModal')">×</button></div><div class="form-grid"><div class="form-group"><label>পণ্যের নাম</label><input id="newName"></div><div class="form-group"><label>দাম</label><input id="newPrice" type="number"></div><div class="form-group"><label>ক্যাটাগরি</label><select id="newCat"><option>নারী পোশাক</option><option>পুরুষ পোশাক</option><option>শিশু পোশাক</option><option>ট্রেডিশনাল</option><option>জুতা ও অ্যাকসেসরিজ</option></select></div><div class="form-group"><label>সাইজ</label><input id="newSize" placeholder="M, L, XL"></div><div class="form-group full"><label>পণ্যের ছবি URL (ঐচ্ছিক)</label><input id="newImg" placeholder="https://..."></div></div><button class="primary" onclick="addProduct()">পণ্য সংরক্ষণ করুন</button></div></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const defaultProducts=[
+ {id:1,name:"মসলিন জামদানি শাড়ি",cat:"নারী পোশাক",price:1290,size:"M, L",emoji:"👗",new:true},
+ {id:2,name:"পুরুষের কালোজামাল শার্ট",cat:"পুরুষ পোশাক",price:890,size:"M, L, XL",emoji:"👔"},
+ {id:3,name:"জিওনাইর পাঞ্জাবি",cat:"পাঞ্জাবি ও কুর্তা",price:900,size:"M, L",emoji:"🥻",new:true},
+ {id:4,name:"লেডিস ফ্যাশন জুতা",cat:"জুতা ও অ্যাকসেসরিজ",price:800,size:"36-40",emoji:"👠"},
+ {id:5,name:"হাফ সিল্ক থ্রি-পিস",cat:"শাড়ি ও সালোয়ার কামিজ",price:1450,size:"Free",emoji:"👚"},
+ {id:6,name:"বাচ্চাদের কটন ড্রেস",cat:"শিশু পোশাক",price:650,size:"2-8 বছর",emoji:"🧒"},
+ {id:7,name:"কাবলি পাঞ্জাবি",cat:"পাঞ্জাবি ও কুর্তা",price:1190,size:"M, L, XL",emoji:"🧥"},
+ {id:8,name:"কাপল ড্রেস সেট",cat:"পার্টি পোশাক",price:1890,size:"M-XL",emoji:"💑"},
+ {id:9,name:"পুরুষদের শীতের জ্যাকেট",cat:"শীতের পোশাক - পুরুষদের",price:1650,size:"M, L, XL",emoji:"🧥",new:true},
+ {id:10,name:"নারীদের শীতের জ্যাকেট",cat:"শীতের পোশাক - নারীদের",price:1550,size:"M, L, XL",emoji:"🧥",new:true},
+ {id:11,name:"বাচ্চাদের শীতের জ্যাকেট",cat:"শীতের পোশাক - বাচ্চাদের",price:950,size:"২-৮ বছর",emoji:"🧒",new:true}
+];
+let products=JSON.parse(localStorage.getItem("mehediProducts")||"null")||defaultProducts;
+let cart=JSON.parse(localStorage.getItem("mehediCart")||"{}");
+let activeCat="all";
+
+function money(n){return "৳ "+Number(n).toLocaleString("bn-BD")}
+function save(){localStorage.setItem("mehediProducts",JSON.stringify(products));localStorage.setItem("mehediCart",JSON.stringify(cart))}
+function toast(t){const e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
+function openModal(id){document.getElementById(id).classList.add("show")}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+document.querySelectorAll(".modal-bg").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("show")}));
+
+function filterCategory(cat){activeCat=cat;renderProducts();document.getElementById("products").scrollIntoView({behavior:"smooth",block:"start"});toast("ক্যাটাগরি: "+cat)}
+function setCat(box,cat){if(box.checked){activeCat="all";renderProducts()}else{activeCat=cat;renderProducts()}}
+function toggleSidebar(){document.getElementById("sidebar").style.display=document.getElementById("sidebar").style.display==="none"?"block":"none"}
+function toggleWinter(){
+  const menu=document.getElementById("winterMenu");
+  const arrow=document.getElementById("winterArrow");
+  const open=menu.style.display==="none";
+  menu.style.display=open?"block":"none";
+  arrow.textContent=open?"⌃":"⌄";
+}
+
+function renderProducts(){
+ let q=document.getElementById("searchInput").value.trim().toLowerCase();
+ let sort=document.getElementById("sortSelect").value;
+ let arr=products.filter(p=>(activeCat==="all"||p.cat===activeCat)&&(!q||p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));
+ if(sort==="low")arr.sort((a,b)=>a.price-b.price);
+ if(sort==="high")arr.sort((a,b)=>b.price-a.price);
+ if(sort==="new")arr.sort((a,b)=>(b.new?1:0)-(a.new?1:0));
+ document.getElementById("products").innerHTML=arr.length?arr.map(productHTML).join(""):'<div class="empty">এই ক্যাটাগরি বা সার্চে কোনো পণ্য পাওয়া যায়নি।<br><button class="primary" style="max-width:220px" onclick="activeCat=\\'all\\';document.getElementById(\\'searchInput\\').value=\\'\\';renderProducts()">সব পণ্য দেখুন</button></div>';
+ updateCartCount();
+}
+function productHTML(p){
+ let img=p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.emoji||"👕"}'">`:(p.emoji||"👕");
+ return `<article class="product">
+ <div class="product-img">${img}</div><div class="product-body">
+ <h3 title="${p.name}">${p.name}</h3><div class="meta">সাইজ: ${p.size||"Free"} · ${p.cat}</div><div class="price">${money(p.price)}</div>
+ <div class="product-actions"><button onclick="showProduct(${p.id})">বিস্তারিত</button><button onclick="addCart(${p.id})">ব্যাগে যোগ করুন</button></div>
+ </div></article>`;
+}
+function showProduct(id){
+ let p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("pmTitle").textContent=p.name;
+ document.getElementById("pmBody").innerHTML=`<div style="font-size:100px;text-align:center;background:#eef2ec;padding:20px;border-radius:8px">${p.img?`<img src="${p.img}" style="max-height:260px;max-width:100%;object-fit:contain">`:p.emoji||"👕"}</div><h3>${p.name}</h3><p>${p.cat} · সাইজ: ${p.size||"Free"}</p><div style="font-size:24px;font-weight:800">${money(p.price)}</div><button class="primary" onclick="addCart(${p.id});closeModal('productModal')">শপিং ব্যাগে যোগ করুন</button>`;
+ openModal("productModal");
+}
+function addCart(id){
+ cart[id]=(cart[id]||0)+1;save();updateCartCount();toast("পণ্য শপিং ব্যাগে যোগ হয়েছে");
+}
+function updateCartCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function openCart(){
+ let ids=Object.keys(cart);
+ if(!ids.length){document.getElementById("cartBody").innerHTML='<div class="empty">আপনার শপিং ব্যাগ খালি।</div>';openModal("cartModal");return}
+ let total=0;
+ let rows=ids.map(id=>{let p=products.find(x=>x.id==id);if(!p)return"";let sub=p.price*cart[id];total+=sub;return `<div class="cart-item"><div><b>${p.name}</b><div class="meta">${money(p.price)} × ${cart[id]}</div></div><div class="qty"><button onclick="changeQty(${id},-1);openCart()">−</button><b>${cart[id]}</b><button onclick="changeQty(${id},1);openCart()">+</button></div><b>${money(sub)}</b></div>`}).join("");
+ document.getElementById("cartBody").innerHTML=rows+`<div class="cart-total">মোট: ${money(total)}</div><button class="primary" onclick="checkout()">অর্ডার সম্পন্ন করুন</button>`;
+ openModal("cartModal");
+}
+function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];save();updateCartCount()}
+function checkout(){
+ let phone=prompt("অর্ডার নিশ্চিত করতে আপনার মোবাইল নম্বর দিন:");
+ if(!phone)return;
+ let order="MM"+Date.now().toString().slice(-8);
+ localStorage.setItem("lastOrder",order);
+ cart={};save();updateCartCount();closeModal("cartModal");toast("অর্ডার গ্রহণ করা হয়েছে: "+order);
+}
+function trackOrder(){let x=prompt("আপনার অর্ডার ট্র্যাকিং নম্বর দিন:");if(x)toast("ট্র্যাকিং নম্বর "+x+" যাচাই করা হচ্ছে...")}
+function register(){
+ let name=document.getElementById("regName").value.trim(),phone=document.getElementById("regPhone").value.trim();
+ if(!name||!phone){toast("নাম ও মোবাইল নম্বর দিন");return}
+ localStorage.setItem("mehediUser",JSON.stringify({name,phone,email:document.getElementById("regEmail").value}));
+ document.getElementById("userText").textContent=name+" — স্বাগতম";
+ closeModal("registerModal");toast("রেজিস্ট্রেশন সফল হয়েছে");
+}
+function login(){
+ let id=document.getElementById("loginId").value.trim();
+ if(!id){toast("মোবাইল / ই-মেইল দিন");return}
+ let u=JSON.parse(localStorage.getItem("mehediUser")||"null");
+ document.getElementById("userText").textContent=(u&&u.name)||id+" — লগইন";
+ closeModal("loginModal");toast("লগইন সফল হয়েছে");
+}
+function addProduct(){
+ let name=document.getElementById("newName").value.trim(),price=Number(document.getElementById("newPrice").value);
+ if(!name||!price){toast("পণ্যের নাম ও দাম দিন");return}
+ products.unshift({id:Date.now(),name,price,cat:document.getElementById("newCat").value,size:document.getElementById("newSize").value||"Free",img:document.getElementById("newImg").value.trim(),emoji:"👕",new:true});
+ save();renderProducts();closeModal("addProductModal");toast("নতুন পণ্য যোগ হয়েছে");
+}
+let u=JSON.parse(localStorage.getItem("mehediUser")||"null");if(u)document.getElementById("userText").textContent=u.name+" — স্বাগতম";
+renderProducts();
+</script>
+</body>
+</html>
